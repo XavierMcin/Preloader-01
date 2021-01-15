@@ -12,25 +12,62 @@ html, body {
 .preloader {
     width: 100%;
     height: 100vh;
-    background-color: aquamarine;
+    background-color: #d3d3d3;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+
+    h1 {
+        width: 100%;
+        height: 15%;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    & > div:nth-of-type(2) {
+        width: 2%;
+        height: 30%;
+        background-color: orangered;
+        border-radius: 0 15px 15px 0;
+        animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+
+        &.done {
+            animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+        }
+    }
+
+    & > div:nth-of-type(3) {
+        width: 2%;
+        height: 20%;
+        background-color: orangered;
+        border-radius: 0 15px 15px 0;
+        animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+
+        &.done {
+            animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+        }
+    }
 }
 
 .battery {
     width: 75%;
     height: 70%;
-    background-color: brown;
+    background-color: orangered;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+
+    &.done {
+        animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+    }
 
     .main {
-        width: 90%;
-        height: 90%;
-        background-color: #ffffff;
+        width: 96%;
+        height: 92%;
+        background-color:#d3d3d3;
         border-radius: 15px;
         display: flex;
         justify-content: space-evenly;
@@ -42,6 +79,7 @@ html, body {
             height: 90%;
             border-radius: 10px;
             background-color: orangered;
+            transition: background-color 1s linear;
             opacity: 0;
 
             &:nth-of-type(1) {
@@ -49,6 +87,7 @@ html, body {
                            .5s linear 4s 1 normal forwards running colorChangeOne;
 
                 &.full {
+                    opacity: 1;
                     animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
                 }
             }
@@ -57,34 +96,46 @@ html, body {
                 animation: .5s linear 3s 3 alternate forwards running pulse,
                            .5s linear 4s 1 normal forwards running colorChangeOne;
                 
+                &.full {
+                    opacity: 1;
+                    animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+                }
+                
             }
 
             &:nth-of-type(3) {
                 animation: .5s linear 4s 5 alternate forwards running pulse,
                            .5s linear 4s 1 normal forwards running colorChangeOne;
+                
+                &.full {
+                    opacity: 1;
+                    animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+                }
             }
 
             &:nth-of-type(4) {
                 animation: .5s linear 6s 5 alternate forwards running pulse,
                            .5s linear 4s 1 normal forwards running colorChangeOne;
+
+                &.full {
+                    opacity: 1;
+                    animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+                }
             }
 
-            // &:nth-of-type(5) {
-            //     animation: .5s linear 8s infinite alternate forwards running pulse,
-            //                .5s linear 4s 1 normal forwards running colorChangeOne;
+            &:nth-of-type(5) {
+                animation: .5s linear 8s infinite alternate forwards running pulse,
+                           .5s linear 4s 1 normal forwards running colorChangeOne;
 
-            //     &.stopper {
-            //         animation-iteration-count: 2;
-            //     }
-            // }
+                &.stopper {
+                    opacity: 1;
+                    animation: .5s linear 0s 1 normal forwards running pulse,
+                               .5s linear 0s 1 normal forwards running colorChangeTwo;
+                }
+            }
         }
     }
 
-    .end {
-        width: 5%;
-        height: 45%;
-        background-color: mediumspringgreen;
-    }
 }
 
 

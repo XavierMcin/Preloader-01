@@ -13,7 +13,7 @@ html, body {
 .preloader {
   width: 100%;
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #d3d3d3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,12 +23,49 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.preloader h1 {
+  width: 100%;
+  height: 15%;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.preloader > div:nth-of-type(2) {
+  width: 2%;
+  height: 30%;
+  background-color: orangered;
+  border-radius: 0 15px 15px 0;
+  -webkit-animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+          animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+}
+
+.preloader > div:nth-of-type(2).done {
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+}
+
+.preloader > div:nth-of-type(3) {
+  width: 2%;
+  height: 20%;
+  background-color: orangered;
+  border-radius: 0 15px 15px 0;
+  -webkit-animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+          animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+}
+
+.preloader > div:nth-of-type(3).done {
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
 }
 
 .battery {
   width: 75%;
   height: 70%;
-  background-color: brown;
+  background-color: orangered;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -39,12 +76,19 @@ html, body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+          animation: .5s linear 4s 1 normal forwards running colorChangeOne;
+}
+
+.battery.done {
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
 }
 
 .battery .main {
-  width: 90%;
-  height: 90%;
-  background-color: #ffffff;
+  width: 96%;
+  height: 92%;
+  background-color: #d3d3d3;
   border-radius: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -63,6 +107,8 @@ html, body {
   height: 90%;
   border-radius: 10px;
   background-color: orangered;
+  -webkit-transition: background-color 1s linear;
+  transition: background-color 1s linear;
   opacity: 0;
 }
 
@@ -72,6 +118,7 @@ html, body {
 }
 
 .battery .main span:nth-of-type(1).full {
+  opacity: 1;
   -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
           animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
 }
@@ -81,9 +128,21 @@ html, body {
           animation: .5s linear 3s 3 alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
 }
 
+.battery .main span:nth-of-type(2).full {
+  opacity: 1;
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+}
+
 .battery .main span:nth-of-type(3) {
   -webkit-animation: .5s linear 4s 5 alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
           animation: .5s linear 4s 5 alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
+}
+
+.battery .main span:nth-of-type(3).full {
+  opacity: 1;
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
 }
 
 .battery .main span:nth-of-type(4) {
@@ -91,10 +150,21 @@ html, body {
           animation: .5s linear 6s 5 alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
 }
 
-.battery .end {
-  width: 5%;
-  height: 45%;
-  background-color: mediumspringgreen;
+.battery .main span:nth-of-type(4).full {
+  opacity: 1;
+  -webkit-animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running colorChangeTwo;
+}
+
+.battery .main span:nth-of-type(5) {
+  -webkit-animation: .5s linear 8s infinite alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
+          animation: .5s linear 8s infinite alternate forwards running pulse, .5s linear 4s 1 normal forwards running colorChangeOne;
+}
+
+.battery .main span:nth-of-type(5).stopper {
+  opacity: 1;
+  -webkit-animation: .5s linear 0s 1 normal forwards running pulse, .5s linear 0s 1 normal forwards running colorChangeTwo;
+          animation: .5s linear 0s 1 normal forwards running pulse, .5s linear 0s 1 normal forwards running colorChangeTwo;
 }
 
 @-webkit-keyframes pulse {
